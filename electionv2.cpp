@@ -457,6 +457,7 @@ int main()
 // int main() {
     int numOfVoters, numOfCandidates;
 
+//sample comment
     cout << "Enter the number of voters: ";
     cin >> numOfVoters;
 
