@@ -14,6 +14,9 @@ int main(){
     cout<<"Input: ";
     cin>>input;
 
+
+    // some wrong program
+
     switch(input){
         case 1: cout<<num1 +num2;
             break;
