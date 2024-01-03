@@ -21,7 +21,7 @@ int main() {
 
     int *alreadyVotedUsers = new int[numOfVoters] ; // Array to track voted IDs
 
-    // taking user inputs of vID and showing candidates loop
+    // taking user inputs of vID and showing candidates loop 
     int j=0;
     while(j<numOfVoters){
 
