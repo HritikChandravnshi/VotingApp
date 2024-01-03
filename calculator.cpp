@@ -8,9 +8,9 @@ int main(){
     cout<<"Enter num2: ";
     cin>>num2;
 
-    cout<<"Options:";
-    cout<<"1. Addition";
-    cout<<"2. Subtract";
+    cout<<"Options:\n";
+    cout<<"1. Addition\n";
+    cout<<"2. Subtract\n";
     cout<<"Input: ";
     cin>>input;
 
