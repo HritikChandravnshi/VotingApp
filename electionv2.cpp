@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 
+bool CheckForValidVoterID(int temp,int numOfVoters){
+    if (temp>numOfVoters){
+        cout<<"invalid Voter ID"<<endl;
+        return true;
+    }
+    return false;
+}
+
 void printResults(int numOfCandidates, int **votesPerCandidate)
 {
     for (int i = 0; i < numOfCandidates; i++)
@@ -8,20 +16,18 @@ void printResults(int numOfCandidates, int **votesPerCandidate)
 }
 
 // boolean return value, checks if voter has already voted
-bool DuplicacyCheck(int numOfVoters, int temp, int *alreadyVotedUsers)
+bool checkIfAlreadyVoted(int numOfVoters, int temp, int *alreadyVotedUsers)
 {
     // Check for duplicate vote
-    bool alreadyVoted = false;
     for (int l = 0; l < numOfVoters; l++)
     {
         if (temp == alreadyVotedUsers[l])
         {
             cout << "Already voted!" << endl;
-            alreadyVoted = true;
-            break;
+            return true;
         }
     }
-    return alreadyVoted;
+    return false;
 }
 
 int main()
@@ -53,12 +59,11 @@ int main()
 
         cout << "Enter your voter ID: ";
         cin >> temp;
-
-        bool alreadyVoted = false;
-        DuplicacyCheck(numOfVoters, temp, alreadyVotedUsers);
-
+        if (CheckForValidVoterID(temp,numOfVoters) == true)
+            continue;
+        
         // if voter has already voted then skip current iteartion
-        if (alreadyVoted == true)
+        if (checkIfAlreadyVoted(numOfVoters, temp, alreadyVotedUsers) == true)
             continue;
 
         // adding alread voted voters in alreadyVotedUsers array
