@@ -1,36 +1,16 @@
 #include <iostream>
 using namespace std;
 
+//Function for checking for the voter id entered lyes within the total no of voters
 bool CheckForValidVoterID(int temp, int numOfVoters)
 {
     if (temp > numOfVoters)
     {
         cout << "invalid Voter ID" << endl;
-        return true;
+        return true; 
     }
     return false;
 }
-
-void printResults(int numOfCandidates, int **votesPerCandidate)
-{
-    for (int i = 1; i <= numOfCandidates; i++)
-        cout << "Candidate " << i << "'s vote count: " << votesPerCandidate[i][0] << "\n";
-}
-
-int DeclareWinner(int **votesPerCandidate, int numOfCandidates)
-{
-    int candidateId = 0, maxVote = votesPerCandidate[0][0];
-    for (int i = 0; i < numOfCandidates; i++)
-    {
-        if (votesPerCandidate[i+1][0] > maxVote)
-        {
-            maxVote = votesPerCandidate[i+1][0];
-            candidateId = i+1;
-        }
-    }
-    return candidateId;
-}
-
 // boolean return value, checks if voter has already voted
 bool checkIfAlreadyVoted(int numOfVoters, int temp, int *alreadyVotedUsers)
 {
@@ -45,6 +25,28 @@ bool checkIfAlreadyVoted(int numOfVoters, int temp, int *alreadyVotedUsers)
     }
     return false;
 }
+
+//Function for printing the votes received by each candidate
+void printResults(int numOfCandidates, int **votesPerCandidate)
+{
+    for (int i = 1; i <= numOfCandidates; i++)
+        cout << "Candidate " << i << "'s vote count: " << votesPerCandidate[i][0] << "\n";
+}
+// function returns the index value of the candidate having the maximum votes
+int DeclareWinner(int **votesPerCandidate, int numOfCandidates)
+{
+    int candidateId = 0, maxVote = 0;
+    for (int i = 0; i < numOfCandidates; i++)
+    {
+        if (votesPerCandidate[i+1][0] > maxVote)
+        {
+            maxVote = votesPerCandidate[i+1][0];
+            candidateId = i+1;
+        }
+    }
+    return candidateId;
+}
+
 
 int main()
 {
